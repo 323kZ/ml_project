@@ -2,7 +2,7 @@ import sys
 import logging
 
 
-def error_message_detail(error,error_message_detail:sys):
+def error_message_detail(error,error_detail:sys):
     _, _,exc_tb = error_detail.exc_info() #stores only the 3rd part 
     file_name = exc_tb.tb_frame.f_code.co_filename #gets the file name with error
     
@@ -11,7 +11,7 @@ def error_message_detail(error,error_message_detail:sys):
     return error_message
 
 class CustomException(Exception):
-    def __init__ (self, error_message, error_message_detail:sys):
+    def __init__ (self, error_message, error_detail:sys):
         super().__init__(error_message)
         self.error_message = error_message_detail(error_message,error_detail = error_detail)
     
